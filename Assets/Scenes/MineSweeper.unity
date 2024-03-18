@@ -1028,7 +1028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &972285153
 Transform:
   m_ObjectHideFlags: 0
@@ -1117,7 +1117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccc957bc1d7b3274da464663e006646e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MineSweeper: {fileID: 972285152}
+  App: {fileID: 0}
 --- !u!21 &1019442856
 Material:
   serializedVersion: 8
@@ -1388,7 +1388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccc957bc1d7b3274da464663e006646e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MineSweeper: {fileID: 972285152}
+  App: {fileID: 0}
 --- !u!4 &1201498729 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3442200632558044521, guid: 11605257e7415d046b00a6976c87a58c, type: 3}
