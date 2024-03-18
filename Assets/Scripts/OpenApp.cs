@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class OpenApp : MonoBehaviour
 {
-    public GameObject MineSweeper;
-    public void OnClickMineSweeper()
+    public GameObject App;
+    public void OnClickIcon()
     {
-        MineSweeper.SetActive(true);
+        App.SetActive(true);
 
     }
 
-    public void OnClickExitMS()
+    public void OnClickExitApp()
     {
-        MineSweeper.SetActive(false);
+        App.SetActive(false);
     }
 }
