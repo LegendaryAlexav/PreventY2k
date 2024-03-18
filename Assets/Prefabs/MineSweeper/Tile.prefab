@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7323982106695158339}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: f4d92a59e057a0a4489aba9836249aff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e336f78662d64dc488110915d55e7ce7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,10 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09a7f80bc76727840805dd49088b3bf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unclickedTile: {fileID: 21300000, guid: f4d92a59e057a0a4489aba9836249aff, type: 3}
-  flaggedTile: {fileID: 21300000, guid: 02208ee416e76b742ba7660fc9e63beb, type: 3}
+  unclickedTile: {fileID: 21300000, guid: e336f78662d64dc488110915d55e7ce7, type: 3}
+  flaggedTile: {fileID: 21300000, guid: 735322e576c41ca4eb6d14551741807d, type: 3}
   clickedTiles:
-  - {fileID: 21300000, guid: 64d1ff0b336b9b64c8ca24a12387ce45, type: 3}
+  - {fileID: 21300000, guid: 6d18e8a3b842c3b44953524879b464b2, type: 3}
   - {fileID: 21300000, guid: c540691ed1f2b8a418be69815b01fd95, type: 3}
   - {fileID: 21300000, guid: 2746fae5c8f8a5849a03e57d22a9de68, type: 3}
   - {fileID: 21300000, guid: 8680d3affcef0da44a7d00960739c32c, type: 3}
@@ -110,13 +110,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 12c5580cf320a98448650e12480023c5, type: 3}
   - {fileID: 21300000, guid: b2203decade7d9d46a7ae5bb279cac32, type: 3}
   - {fileID: 21300000, guid: 693dc64aa03fdfe48a82883311d2e5c7, type: 3}
-  mineTile: {fileID: 21300000, guid: cfdc4bace2df9394e80e08a0ddb638ec, type: 3}
-  mineWrongTile: {fileID: 21300000, guid: 0d059c694dc5ad043bf9020a2ec7a9e4, type: 3}
-  mineHitTile: {fileID: 21300000, guid: 55737a8a95276f24096dc4d1a9430152, type: 3}
+  mineTile: {fileID: 21300000, guid: 150de91e46d39284485a170df5f54023, type: 3}
+  mineWrongTile: {fileID: 21300000, guid: e83791fb316b9844baf811ee47075fc9, type: 3}
+  mineHitTile: {fileID: 21300000, guid: f80f289a5ae11ac438931527eed93a33, type: 3}
+  gameManager: {fileID: 0}
   flagged: 0
   active: 1
   isMine: 0
-  mineCount: 2
+  mineCount: 0
 --- !u!61 &7050655628903308478
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -149,7 +150,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0053679943, y: 0.004827678}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -160,5 +161,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6, y: 1.6}
+  m_Size: {x: 1.5393999, y: 1.548786}
   m_EdgeRadius: 0
