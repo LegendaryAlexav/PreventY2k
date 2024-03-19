@@ -24,7 +24,7 @@ public class Tile : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            ClickedTiles();
+            //ClickedTiles(); Error, Method does not exist
         }
     }
 
