@@ -1117,7 +1117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccc957bc1d7b3274da464663e006646e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  App: {fileID: 0}
+  App: {fileID: 972285152}
 --- !u!21 &1019442856
 Material:
   serializedVersion: 8
@@ -1262,7 +1262,7 @@ Transform:
   m_GameObject: {fileID: 1137024764}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.65, y: 9.49, z: 0.49}
+  m_LocalPosition: {x: 6.36, y: 9.18, z: -0.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1366,7 +1366,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 972285155}
         m_TargetAssemblyTypeName: OpenApp, Assembly-CSharp
-        m_MethodName: OnClickExitMS
+        m_MethodName: OnClickExitApp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1388,7 +1388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccc957bc1d7b3274da464663e006646e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  App: {fileID: 0}
+  App: {fileID: 972285152}
 --- !u!4 &1201498729 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3442200632558044521, guid: 11605257e7415d046b00a6976c87a58c, type: 3}
@@ -1479,7 +1479,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 972285155}
         m_TargetAssemblyTypeName: OpenApp, Assembly-CSharp
-        m_MethodName: OnClickMineSweeper
+        m_MethodName: OnClickIcon
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

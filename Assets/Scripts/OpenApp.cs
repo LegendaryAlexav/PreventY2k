@@ -7,12 +7,12 @@ public class OpenApp : MonoBehaviour
     public GameObject App;
     public void OnClickIcon()
     {
-        App.SetActive(true);
+        App.gameObject.SetActive(true);
 
     }
 
     public void OnClickExitApp()
     {
-        App.SetActive(false);
+        App.gameObject.SetActive(false);
     }
 }
