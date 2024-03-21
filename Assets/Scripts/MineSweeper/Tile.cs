@@ -20,6 +20,7 @@ public class Tile : MonoBehaviour
     public bool active = true;
     public bool isMine = false;
     public int mineCount = 0;
+    public int numbOfMines = 59;
 
     private void Awake()
     {

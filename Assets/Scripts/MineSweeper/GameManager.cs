@@ -10,15 +10,15 @@ public class GameManager : MonoBehaviour
 
     private List<Tile> tiles = new();
 
-    private int width;
-    private int height;
-    private int numMines;
+    private int width = 16;
+    private int height = 16;
+    private int numMines = 59;
 
     private readonly float tileSize = 0.8f;
 
     void Start()
     {
-        CreateGameBoard(9,9,10); //Easy
+        //CreateGameBoard(9,9,10); //Easy
         //CreateGameBoard(16, 16, 40); //Intermediate
         //CreateGameBoard(30, 16, 99); //Expert
 

@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TimerNBombs : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    int numbOfBombs = 59;
+    [SerializeField] private List<Sprite> numbers;
+
+    private void Update()
     {
-        
+        if (Input.GetMouseButtonDown(1)) 
+        { 
+            numbOfBombs--;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
