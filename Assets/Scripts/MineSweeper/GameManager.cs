@@ -24,6 +24,13 @@ public class GameManager : MonoBehaviour
 
         ResetGameState();
     }
+    public void Flagged()
+    {
+        numMines--;
+        Debug.Log(numMines);
+    }
+
+
 
     public void CreateGameBoard(int width, int height, int numMines)
     {
@@ -122,7 +129,7 @@ public class GameManager : MonoBehaviour
         int location = tiles.IndexOf(tile);
         foreach (int pos in GetNeighbours(location))
         {
-            tiles[pos].ClickedTile();
+            //tiles[pos].ClickedTile();
         }
     }
     public void GameOver()
@@ -155,7 +162,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ExpandIfFlagged(Tile tile)
+    /*public void ExpandIfFlagged(Tile tile)
     {
         int location = tiles.IndexOf(tile);
         int flag_count = 0;
@@ -170,6 +177,6 @@ public class GameManager : MonoBehaviour
         {
             ClickNeighbours(tile);
         }
-    }
+    }*/
 
 }

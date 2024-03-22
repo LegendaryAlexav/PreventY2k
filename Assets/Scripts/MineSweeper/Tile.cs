@@ -20,7 +20,6 @@ public class Tile : MonoBehaviour
     public bool active = true;
     public bool isMine = false;
     public int mineCount = 0;
-    public int numbOfMines = 59;
 
     private void Awake()
     {
@@ -41,6 +40,7 @@ public class Tile : MonoBehaviour
                 if (flagged)
                 {
                     spriteRenderer.sprite = flaggedTile;
+                    gameManager.Flagged();
                 }
                 else
                 {
@@ -52,7 +52,7 @@ public class Tile : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
-                gameManager.ExpandIfFlagged(this);
+                //gameManager.ExpandIfFlagged(this);
             }
         }
         
