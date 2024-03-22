@@ -41,12 +41,16 @@ public class Tile : MonoBehaviour
                 {
                     spriteRenderer.sprite = flaggedTile;
                     gameManager.Flagged();
+                    
                 }
+                
                 else
                 {
                     spriteRenderer.sprite = unclickedTile;
+                    gameManager.UnFlagged();
                 }
             }
+            
         }
         else
         {

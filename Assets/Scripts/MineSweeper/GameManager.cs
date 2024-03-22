@@ -10,9 +10,13 @@ public class GameManager : MonoBehaviour
 
     private List<Tile> tiles = new();
 
+    public TimerNBombs Num1;
+    public TimerNBombs Num2;
+    public TimerNBombs Num3;
+
     private int width = 16;
     private int height = 16;
-    private int numMines = 59;
+    private int numMines = 60;
 
     private readonly float tileSize = 0.8f;
 
@@ -27,9 +31,14 @@ public class GameManager : MonoBehaviour
     public void Flagged()
     {
         numMines--;
-        Debug.Log(numMines);
+        Num1.BombDown();
+        
     }
-
+    public void UnFlagged()
+    {
+        numMines++;
+        Num1.BombUp();
+    }
 
 
     public void CreateGameBoard(int width, int height, int numMines)
