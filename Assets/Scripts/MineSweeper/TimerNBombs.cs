@@ -11,18 +11,20 @@ public class TimerNBombs : MonoBehaviour
     public GameObject Number2;
     public GameObject Number3;
     public GameManager GameManager;
-    
-    
+
+    private bool timerActivate = false;
+    private float currentTime = 0;
 
     private SpriteRenderer spriteRenderer;
     public bool isTimer = false;
     public bool isCounter = false;
-    private float timer = 0.0f;
+
     public int numberCount = 0;
     public int digit = 0;
     public int secdigit = 6;
-    private int lastdigit = 0;
-    private int lastsecdigit = 0;
+    private int second = 0;
+    private int tensecond = 0;
+    private int hundredsecond = 0;
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -30,12 +32,28 @@ public class TimerNBombs : MonoBehaviour
 
     private void Update()
     {
+        if (timerActivate == true)
+        {
+            currentTime = currentTime + Time.deltaTime;
+            second = (int)currentTime;
+            if (second > 9)
+            {
+                second = 0;
+                tensecond++;
+            }
+            else if (tensecond > 9)
+            {
+                tensecond = 0;
+                hundredsecond++;
+            }
+            TimerToDig();
+        }
 
     }
 
     private void Start()
     {
-        
+
         if (isCounter == true)
         {
             Counter();
@@ -52,32 +70,30 @@ public class TimerNBombs : MonoBehaviour
         {
             spriteRenderer = Number2.gameObject.GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = numbers[secdigit];
-            
+
             spriteRenderer = Number3.gameObject.GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = numbers[digit];
-           
+
         }
 
     }
 
-    
+
 
     public void BombUp()
     {
         numbOfBombs++;
         if (digit == 9)
         {
-            lastdigit = digit;
             digit = 0;
-            lastsecdigit = secdigit;
             secdigit++;
             Debug.Log("Over9");
         }
-        else if (digit != 9){ digit++; }
+        else if (digit != 9) { digit++; }
         Counter();
         Debug.Log(numbOfBombs);
-        
-        
+
+
     }
 
     public void BombDown()
@@ -96,16 +112,28 @@ public class TimerNBombs : MonoBehaviour
             Counter();
             Debug.Log(numbOfBombs);
         }
-        else if (numbOfBombs <= 0){ numbOfBombs = 0; Debug.Log("NoMoreBombs"); }
+        else if (numbOfBombs <= 0) { numbOfBombs = 0; Debug.Log("NoMoreBombs"); }
     }
 
 
     private void Timer()
     {
-        int minutes = Mathf.FloorToInt(timer / 60.0f);
-        int seconds = Mathf.FloorToInt(timer - minutes * 60);
+
+
+        timerActivate = true;
 
 
     }
+    private void TimerToDig()
+    {
+        spriteRenderer = Number1.gameObject.GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = numbers[hundredsecond];
 
+        spriteRenderer = Number2.gameObject.GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = numbers[tensecond];
+
+        spriteRenderer = Number3.gameObject.GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = numbers[second];
+
+    }
 }
