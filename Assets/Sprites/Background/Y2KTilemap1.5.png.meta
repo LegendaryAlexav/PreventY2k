@@ -114,207 +114,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 13
-        width: 3
-        height: 3
+        y: 7
+        width: 9
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 2, y: 2, z: 2, w: 2}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 44ebb36bc6a3f3b4cbaf767b96562b8c
       internalID: 1183444445
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Y2KTilemap1.5_1
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 13
-        width: 3
-        height: 3
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ad5fa4c47b31fb548822cfe283777a69
-      internalID: 812915949
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Y2KTilemap1.5_2
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 13
-        width: 3
-        height: 3
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 60f2354fee54fa242b2b7776375d61a4
-      internalID: -132136935
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Y2KTilemap1.5_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 10
-        width: 3
-        height: 3
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3adb0d2316273ad42a81f56e5bfd3635
-      internalID: -1779019799
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Y2KTilemap1.5_4
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 10
-        width: 3
-        height: 3
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 30db65991cf7ee94e97a9c82c257e666
-      internalID: -154880292
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Y2KTilemap1.5_5
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 10
-        width: 3
-        height: 3
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ad2306b0e377171478ad49c294096ccf
-      internalID: -2132171082
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Y2KTilemap1.5_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 7
-        width: 3
-        height: 3
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b617859ec2c57bf45a9decb116c2518c
-      internalID: 1156544955
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Y2KTilemap1.5_7
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 7
-        width: 3
-        height: 3
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c44bfcb3af8439645bba1fb2bf18923e
-      internalID: -1291396892
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Y2KTilemap1.5_8
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 7
-        width: 3
-        height: 3
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dbc088fcd0ff4884789d4dfb45034bc1
-      internalID: -1007057037
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Y2KTilemap1.5_9
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 4
-        width: 3
-        height: 3
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 78ca147443cf4b34ba6f4ed3a5103077
-      internalID: -1137646414
       vertices: []
       indices: 
       edges: []
@@ -331,15 +142,6 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Y2KTilemap1.5_0: 1183444445
-      Y2KTilemap1.5_1: 812915949
-      Y2KTilemap1.5_2: -132136935
-      Y2KTilemap1.5_3: -1779019799
-      Y2KTilemap1.5_4: -154880292
-      Y2KTilemap1.5_5: -2132171082
-      Y2KTilemap1.5_6: 1156544955
-      Y2KTilemap1.5_7: -1291396892
-      Y2KTilemap1.5_8: -1007057037
-      Y2KTilemap1.5_9: -1137646414
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
