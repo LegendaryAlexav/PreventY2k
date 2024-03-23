@@ -8,7 +8,7 @@ public class MoveFolders : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IP
 {
     [HideInInspector]
     public Transform parentAfterDrag;
-
+    
     [SerializeField]
     private GameObject window;
     private bool windowActive;
@@ -16,9 +16,18 @@ public class MoveFolders : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IP
     [SerializeField]
     private Image image; // Image of the item
 
+    public List<MoveFolders> containedFolders = new List<MoveFolders>(); // All folders that it contains
+    public MoveFolders parentFolder; // Reference to it's parent folder
+
     float clicked = 0;
     float clicktime = 0;
-    float clickdelay = 0.5f;
+    float clickdelay = 1.5f;
+
+    private void Start() {
+        
+    }
+
+    #region -Mouse Events-
 
     public void OnBeginDrag(PointerEventData eventData) {
         windowActive = window.activeInHierarchy; // Check if the window is active or not
@@ -50,6 +59,9 @@ public class MoveFolders : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IP
             window.SetActive(true); // set active the window
 
         } else if (clicked > 2 || Time.time - clicktime > 1) clicked = 0; // If it is more than twice ior when it is bigger than the set delay, reset the clicks
-
+        Debug.Log(parentFolder.gameObject.name);
     }
+
+    #endregion
+
 }
