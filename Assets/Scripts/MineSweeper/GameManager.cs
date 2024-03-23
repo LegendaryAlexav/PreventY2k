@@ -19,6 +19,14 @@ public class GameManager : MonoBehaviour
     private int numMines = 60;
 
     private readonly float tileSize = 0.8f;
+    public GameObject MSGameHolder;
+
+    public void ResetGame()
+    {
+        MSGameHolder.gameObject.SetActive(false);
+        MSGameHolder.gameObject.SetActive(true);
+    }
+
 
     void Start()
     {
