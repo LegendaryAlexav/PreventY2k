@@ -39,9 +39,12 @@ public class TimerNBombs : MonoBehaviour
             if (second > 9)
             {
                 second = 0;
+                currentTime = 0;
                 tensecond++;
             }
-            else if (tensecond > 9)
+            
+            
+            if (tensecond > 9)
             {
                 tensecond = 0;
                 hundredsecond++;
