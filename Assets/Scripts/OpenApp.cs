@@ -15,4 +15,7 @@ public class OpenApp : MonoBehaviour
     {
         App.gameObject.SetActive(false);
     }
+
+    
+
 }

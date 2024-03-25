@@ -18,13 +18,16 @@ public class GameManager : MonoBehaviour
     public GameObject instantiateObjectHere;
     private GameObject newInstance;
     public GameObject StarterHolder;
+    //public GameObject[] TileParent;
 
     private int width = 16;
     private int height = 16;
     private int numMines = 60;
+    private int childCount = 0;
 
-    private readonly float tileSize = 0.8f;
-    
+    //private readonly float tileSize = 0.8f;
+
+    private GameObject[] TileParent;
      
     public void ResetGame()
     {
@@ -32,6 +35,8 @@ public class GameManager : MonoBehaviour
         newInstance = Instantiate(MSGameHolder);
         newInstance.gameObject.SetActive(true);
         StarterHolder.gameObject.SetActive(false);
+        Num1 = Num2;
+        numMines = 60;
     }
 
     public void CloseApp()
@@ -49,13 +54,16 @@ public class GameManager : MonoBehaviour
         StarterHolder.SetActive(false);
     }
 
-    void Start()
+    private void Start()
     {
+
+
         //CreateGameBoard(9,9,10); //Easy
-        //CreateGameBoard(16, 16, 40); //Intermediate
+        //CreateGameBoard(16, 16, 60); //Intermediate
         //CreateGameBoard(30, 16, 99); //Expert
 
-        ResetGameState();
+        //ResetGameState();
+        
     }
     public void Flagged()
     {
@@ -67,7 +75,11 @@ public class GameManager : MonoBehaviour
     {
         numMines++;
         Num1.BombUp();
+        
     }
+
+
+
 
 
     public void CreateGameBoard(int width, int height, int numMines)
@@ -80,20 +92,22 @@ public class GameManager : MonoBehaviour
         {
             for (int col = 0; col < width; col++)
             {
-                Transform tileTransform = Instantiate(tilePrefab);
+
+               
+                /*
                 tileTransform.parent = gameHolder;
                 float xIndex = col - ((width - 1) / 2.0f);
                 float yIndex = row - ((height - 1) / 2.0f);
                 tileTransform.localPosition = new Vector2(xIndex * tileSize, yIndex * tileSize);
-
-                Tile tile = tileTransform.GetComponent<Tile>();
-                tiles.Add(tile);
-                tile.gameManager = this;
+                */
+                //Tile tile = tileTransform.GetComponent<Tile>();
+                //tiles.Add(tile);
+                //tile.gameManager = this;
             }
         }
     }
 
-    private void ResetGameState()
+    /*private void ResetGameState()
     {
         int[] minePositions = Enumerable.Range(0, tiles.Count).OrderBy(x => Random.Range(0.0f, 1.0f)).ToArray();
 
@@ -108,6 +122,7 @@ public class GameManager : MonoBehaviour
             tiles[i].mineCount = HowManyMines(i);
         }
 }
+
     private int HowManyMines(int location)
     {
         int count = 0;
@@ -120,7 +135,7 @@ public class GameManager : MonoBehaviour
         }
         return count;
     }
-
+    */
     private List<int> GetNeighbours(int pos) 
     {
         List<int> neighbours = new();
@@ -167,40 +182,35 @@ public class GameManager : MonoBehaviour
         int location = tiles.IndexOf(tile);
         foreach (int pos in GetNeighbours(location))
         {
-            //tiles[pos].ClickedTile();
+           // tiles[pos].ClickedTile();
         }
     }
-    public void GameOver()
-    {
-        foreach (Tile tile in tiles) 
-        {
-            tile.ShowGameOverState();
-        }
-    }
+    
 
     public void CheckGameOver()
     {
+        
         int count = 0;
-        foreach (Tile tile in tiles)
+        for (int i = 0; i < TileParent.Length; i++) 
         {
-
-            if (tile.active)
+            if (TileParent[i].active == true)
             {
                 count++;
             }
+            
         }
         if (count == numMines)
         {
             Debug.Log("Winner!");
-            foreach (Tile tile in tiles)
+            /*foreach (Tile tile in tiles)
             {
                 tile.active = false;
                 tile.SetFlaggedIfMine();
-            }
+            }*/
         }
     }
-
-    /*public void ExpandIfFlagged(Tile tile)
+    /*
+    public void ExpandIfFlagged(Tile tile)
     {
         int location = tiles.IndexOf(tile);
         int flag_count = 0;

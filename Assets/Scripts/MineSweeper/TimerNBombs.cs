@@ -90,7 +90,6 @@ public class TimerNBombs : MonoBehaviour
         {
             digit = 0;
             secdigit++;
-            Debug.Log("Over9");
         }
         else if (digit != 9) { digit++; }
         Counter();
@@ -108,7 +107,6 @@ public class TimerNBombs : MonoBehaviour
             {
                 digit = 9;
                 secdigit--;
-                Debug.Log("Under0");
             }
             else if (digit != 0) { digit--; }
 

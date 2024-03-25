@@ -21,6 +21,8 @@ public class Tile : MonoBehaviour
     public bool isMine = false;
     public int mineCount = 0;
 
+    public bool Loser = false;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -28,29 +30,33 @@ public class Tile : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (active)
+        if (Loser != true)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (active)
             {
-                ClickedTile();
-            }
-            else if (Input.GetMouseButtonDown(1))
-            {
-                flagged = !flagged;
-                if (flagged)
+                if (Input.GetMouseButtonDown(0))
                 {
-                    spriteRenderer.sprite = flaggedTile;
-                    gameManager.Flagged();
-                    
+                    ClickedTile();
+
                 }
-                
-                else
+                else if (Input.GetMouseButtonDown(1))
                 {
-                    spriteRenderer.sprite = unclickedTile;
-                    gameManager.UnFlagged();
+                    flagged = !flagged;
+                    if (flagged)
+                    {
+                        spriteRenderer.sprite = flaggedTile;
+                        gameManager.Flagged();
+
+                    }
+
+                    else
+                    {
+                        spriteRenderer.sprite = unclickedTile;
+                        gameManager.UnFlagged();
+                    }
                 }
+
             }
-            
         }
         else
         {
@@ -62,6 +68,11 @@ public class Tile : MonoBehaviour
         
     }
 
+    private void Lost()
+    {
+        Loser = true;
+    }
+
     public void ClickedTile()
     {
         if(active & !flagged)
@@ -70,7 +81,8 @@ public class Tile : MonoBehaviour
             if (isMine)
             {
                 spriteRenderer.sprite = mineHitTile;
-                gameManager.GameOver();
+                Lost();
+                ShowGameOverState();
             }
             else
             {
@@ -78,9 +90,9 @@ public class Tile : MonoBehaviour
             }
             if (mineCount == 0)
             {
-                gameManager.ClickNeighbours(this);
+                //gameManager.ClickNeighbours(this);
             }
-            gameManager.CheckGameOver();
+            //gameManager.CheckGameOver();
         }
     }
 
