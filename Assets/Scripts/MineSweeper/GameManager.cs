@@ -14,19 +14,40 @@ public class GameManager : MonoBehaviour
     public TimerNBombs Num2;
     public TimerNBombs Num3;
 
+    public GameObject MSGameHolder;
+    public GameObject instantiateObjectHere;
+    private GameObject newInstance;
+    public GameObject StarterHolder;
+
     private int width = 16;
     private int height = 16;
     private int numMines = 60;
 
     private readonly float tileSize = 0.8f;
-    public GameObject MSGameHolder;
-
+    
+     
     public void ResetGame()
     {
-        MSGameHolder.gameObject.SetActive(false);
-        MSGameHolder.gameObject.SetActive(true);
+        Destroy(newInstance);
+        newInstance = Instantiate(MSGameHolder);
+        newInstance.gameObject.SetActive(true);
+        StarterHolder.gameObject.SetActive(false);
     }
 
+    public void CloseApp()
+    {
+        if (newInstance != null)
+        {
+            newInstance.SetActive(false);
+        }
+    }
+    public void OpenApp()
+    {
+        Destroy(newInstance);
+        newInstance = Instantiate(MSGameHolder);
+        newInstance.gameObject.SetActive(true);
+        StarterHolder.SetActive(false);
+    }
 
     void Start()
     {
