@@ -18,7 +18,7 @@ public class Tile : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public bool flagged = false;
     public bool active = true;
-    public bool isMine = false;
+    public bool isMine;
     public int mineCount = 0;
 
     public bool Loser = false;
@@ -32,10 +32,12 @@ public class Tile : MonoBehaviour
     {
         if (Loser != true)
         {
+            
             if (active)
             {
                 if (Input.GetMouseButtonDown(0))
                 {
+                    Debug.Log("Womp");
                     ClickedTile();
 
                 }
@@ -46,7 +48,12 @@ public class Tile : MonoBehaviour
                     {
                         spriteRenderer.sprite = flaggedTile;
                         gameManager.Flagged();
-
+                        if (isMine)
+                        {
+                            Debug.Log("FLGood");
+                            gameManager.GOCounter();
+                        }
+                        gameManager.CheckGameOver();
                     }
 
                     else
@@ -68,30 +75,29 @@ public class Tile : MonoBehaviour
         
     }
 
-    private void Lost()
-    {
-        Loser = true;
-    }
-
     public void ClickedTile()
     {
         if(active & !flagged)
         {
             active = false;
+            Debug.Log("A & NF");
             if (isMine)
             {
                 spriteRenderer.sprite = mineHitTile;
-                Lost();
-                ShowGameOverState();
+                Debug.Log("Hit!");
+                gameManager.LostGame();
+                
             }
             else
             {
                 spriteRenderer.sprite = clickedTiles[mineCount];
+                Debug.Log("Meh");
             }
             if (mineCount == 0)
             {
                 //gameManager.ClickNeighbours(this);
             }
+            
             //gameManager.CheckGameOver();
         }
     }

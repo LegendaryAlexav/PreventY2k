@@ -2,7 +2,7 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading;
-
+[RequireComponent(typeof(SpriteRenderer))]
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Transform tilePrefab;
@@ -10,20 +10,26 @@ public class GameManager : MonoBehaviour
 
     private List<Tile> tiles = new();
 
+    private SpriteRenderer spriteRenderer;
+
     public TimerNBombs Num1;
     public TimerNBombs Num2;
     public TimerNBombs Num3;
 
+    public GameObject Face;
+    public GameObject LoserFace;
+    public GameObject WinnerFace;
+
+    public GameObject CloneL;
+    public GameObject CloneW;
+    public GameObject CloneF;
+
     public GameObject MSGameHolder;
-    public GameObject instantiateObjectHere;
     private GameObject newInstance;
     public GameObject StarterHolder;
-    //public GameObject[] TileParent;
 
-    private int width = 16;
-    private int height = 16;
     private int numMines = 60;
-    private int childCount = 0;
+    private int correctlyFlagged = 0;
 
     //private readonly float tileSize = 0.8f;
 
@@ -37,8 +43,11 @@ public class GameManager : MonoBehaviour
         StarterHolder.gameObject.SetActive(false);
         Num1 = Num2;
         numMines = 60;
+        CloneW.SetActive(false);
+        CloneL.SetActive(false);
+        CloneF.SetActive(true);
+        
     }
-
     public void CloseApp()
     {
         if (newInstance != null)
@@ -52,18 +61,9 @@ public class GameManager : MonoBehaviour
         newInstance = Instantiate(MSGameHolder);
         newInstance.gameObject.SetActive(true);
         StarterHolder.SetActive(false);
-    }
-
-    private void Start()
-    {
-
-
-        //CreateGameBoard(9,9,10); //Easy
-        //CreateGameBoard(16, 16, 60); //Intermediate
-        //CreateGameBoard(30, 16, 99); //Expert
-
-        //ResetGameState();
-        
+        CloneF.SetActive(true);
+        CloneW.SetActive(false);
+        CloneL.SetActive(false);
     }
     public void Flagged()
     {
@@ -77,154 +77,40 @@ public class GameManager : MonoBehaviour
         Num1.BombUp();
         
     }
-
-
-
-
-
-    public void CreateGameBoard(int width, int height, int numMines)
+    public void LostGame()
     {
-        this.width = width;
-        this.height = height;
-        this.numMines = numMines;
-
-        for (int row = 0; row < height; row++)
+        if (StarterHolder.activeSelf == true)
         {
-            for (int col = 0; col < width; col++)
-            {
+            LoserFace.gameObject.SetActive(true);
+            Debug.Log("Lost");
+            Face.gameObject.SetActive(false);
+            WinnerFace.gameObject.SetActive(false);
+        }
 
-               
-                /*
-                tileTransform.parent = gameHolder;
-                float xIndex = col - ((width - 1) / 2.0f);
-                float yIndex = row - ((height - 1) / 2.0f);
-                tileTransform.localPosition = new Vector2(xIndex * tileSize, yIndex * tileSize);
-                */
-                //Tile tile = tileTransform.GetComponent<Tile>();
-                //tiles.Add(tile);
-                //tile.gameManager = this;
-            }
+        else
+        {
+            CloneL.SetActive(true);
+            CloneF.SetActive(false);
+            CloneW.SetActive(false);
         }
     }
-
-    /*private void ResetGameState()
+    public void GOCounter()
     {
-        int[] minePositions = Enumerable.Range(0, tiles.Count).OrderBy(x => Random.Range(0.0f, 1.0f)).ToArray();
-
-        for (int i=0; i < numMines; i++)
-        {
-            int pos = minePositions[i];
-            tiles[pos].isMine = true;
-        }
-
-        for (int i=0;i < tiles.Count; i++)
-        {
-            tiles[i].mineCount = HowManyMines(i);
-        }
-}
-
-    private int HowManyMines(int location)
-    {
-        int count = 0;
-        foreach (int pos in GetNeighbours(location))
-        {
-            if (tiles[pos].isMine)
-            {
-                count++;
-            }
-        }
-        return count;
+        correctlyFlagged++;
+        Debug.Log("GoodFlagged");
     }
-    */
-    private List<int> GetNeighbours(int pos) 
-    {
-        List<int> neighbours = new();
-        int row = pos / width;
-        int col = pos % width;
-
-        if (row < (height - 1))
-        {
-            neighbours.Add(pos + width); // North
-            if(col > 0)
-            {
-                neighbours.Add(pos + width - 1); // North-West
-            }
-            if(col < (width - 1))
-            {
-                neighbours.Add(pos + width + 1); // North-East
-            }
-        }
-        if (col > 0)
-        {
-            neighbours.Add(pos - 1); // West
-        }
-        if (col < (width - 1))
-        {
-            neighbours.Add(pos + 1); //East
-        }
-        if (row > 0)
-        {
-            neighbours.Add(pos - width); // South
-            if(col > 0)
-            {
-                neighbours.Add(pos - width - 1); // South-West
-            }
-            if (col < (width - 1))
-            {
-                neighbours.Add(pos - width + 1); // South-East
-            }
-        }
-        return neighbours; 
-    }
-
-    public void ClickNeighbours(Tile tile)
-    {
-        int location = tiles.IndexOf(tile);
-        foreach (int pos in GetNeighbours(location))
-        {
-           // tiles[pos].ClickedTile();
-        }
-    }
-    
 
     public void CheckGameOver()
     {
-        
-        int count = 0;
-        for (int i = 0; i < TileParent.Length; i++) 
-        {
-            if (TileParent[i].active == true)
-            {
-                count++;
-            }
-            
-        }
-        if (count == numMines)
+        if (correctlyFlagged == 60)
         {
             Debug.Log("Winner!");
-            /*foreach (Tile tile in tiles)
-            {
-                tile.active = false;
-                tile.SetFlaggedIfMine();
-            }*/
+            WinnerFace.gameObject.SetActive(true);
+            Face.gameObject.SetActive(false);
+            LoserFace.gameObject.SetActive(false);
+
         }
     }
-    /*
-    public void ExpandIfFlagged(Tile tile)
-    {
-        int location = tiles.IndexOf(tile);
-        int flag_count = 0;
-        foreach (int pos in GetNeighbours(location))
-        {
-            if (tiles[pos].flagged)
-            {
-                flag_count++;
-            }
-        }
-        if (flag_count == tile.mineCount)
-        {
-            ClickNeighbours(tile);
-        }
-    }*/
+    
 
 }
