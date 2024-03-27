@@ -37,9 +37,9 @@ MonoBehaviour:
     innerMonitorDarkness: 0.294
     innerMonitorShine: 0
     colorScans:
-      greenChannelMultiplier: 0
-      redBlueChannelMultiplier: 0
-      sizeMultiplier: 0
+      greenChannelMultiplier: 0.116
+      redBlueChannelMultiplier: 0.127
+      sizeMultiplier: 1.72
     innerMonitorShineRadius: -0.087
     innerMonitorShineCurve: 10
-  validationId: dc4e4cae-21b6-46e6-b652-8b9ee443a4fb
+  validationId: 93a1dabf-c269-4af2-920b-8be3421c3fb2

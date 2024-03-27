@@ -18866,9 +18866,9 @@ MonoBehaviour:
     innerMonitorDarkness: 0.294
     innerMonitorShine: 0
     colorScans:
-      greenChannelMultiplier: 0
-      redBlueChannelMultiplier: 0
-      sizeMultiplier: 0
+      greenChannelMultiplier: 0.138
+      redBlueChannelMultiplier: 0.147
+      sizeMultiplier: 3.71
     innerMonitorShineRadius: -0.087
     innerMonitorShineCurve: 10
 --- !u!4 &892609180 stripped
@@ -21314,7 +21314,7 @@ Material:
     m_Colors:
     - _BorderTint: {r: 0.6792453, g: 0.6666873, b: 0.48956925, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorScans: {r: 0, g: 0, b: 0, a: 0}
+    - _ColorScans: {r: 0.138, g: 0.147, b: 3.71, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
 --- !u!1001 &1021528314
@@ -37413,7 +37413,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 892573713}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
