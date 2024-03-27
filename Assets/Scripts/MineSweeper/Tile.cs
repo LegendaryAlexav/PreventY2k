@@ -56,6 +56,11 @@ public class Tile : MonoBehaviour
                         gameManager.CheckGameOver();
                     }
 
+                    else if (flagged)
+                    {
+
+                    }
+
                     else
                     {
                         spriteRenderer.sprite = unclickedTile;

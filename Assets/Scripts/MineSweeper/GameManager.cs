@@ -20,10 +20,6 @@ public class GameManager : MonoBehaviour
     public GameObject LoserFace;
     public GameObject WinnerFace;
 
-    public GameObject CloneL;
-    public GameObject CloneW;
-    public GameObject CloneF;
-
     public GameObject MSGameHolder;
     private GameObject newInstance;
     public GameObject StarterHolder;
@@ -37,16 +33,17 @@ public class GameManager : MonoBehaviour
      
     public void ResetGame()
     {
+
         Destroy(newInstance);
         newInstance = Instantiate(MSGameHolder);
         newInstance.gameObject.SetActive(true);
         StarterHolder.gameObject.SetActive(false);
         Num1 = Num2;
         numMines = 60;
-        CloneW.SetActive(false);
-        CloneL.SetActive(false);
-        CloneF.SetActive(true);
-        
+        LoserFace.gameObject.SetActive(false);
+        Face.gameObject.SetActive(true);
+        WinnerFace.gameObject.SetActive(false);
+
     }
     public void CloseApp()
     {
@@ -61,9 +58,9 @@ public class GameManager : MonoBehaviour
         newInstance = Instantiate(MSGameHolder);
         newInstance.gameObject.SetActive(true);
         StarterHolder.SetActive(false);
-        CloneF.SetActive(true);
-        CloneW.SetActive(false);
-        CloneL.SetActive(false);
+        LoserFace.gameObject.SetActive(false);
+        Face.gameObject.SetActive(true);
+        WinnerFace.gameObject.SetActive(false);
     }
     public void Flagged()
     {
@@ -79,25 +76,20 @@ public class GameManager : MonoBehaviour
     }
     public void LostGame()
     {
-        if (StarterHolder.activeSelf == true)
-        {
-            LoserFace.gameObject.SetActive(true);
-            Debug.Log("Lost");
-            Face.gameObject.SetActive(false);
-            WinnerFace.gameObject.SetActive(false);
-        }
-
-        else
-        {
-            CloneL.SetActive(true);
-            CloneF.SetActive(false);
-            CloneW.SetActive(false);
-        }
+        Debug.Log("Lost");
+        LoserFace.gameObject.SetActive(true);
+        Face.gameObject.SetActive(false);
+        WinnerFace.gameObject.SetActive(false);
     }
     public void GOCounter()
     {
         correctlyFlagged++;
         Debug.Log("GoodFlagged");
+    }
+    public void GODown()
+    {
+            correctlyFlagged--;
+        
     }
 
     public void CheckGameOver()
