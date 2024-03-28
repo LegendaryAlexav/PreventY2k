@@ -114,4 +114,8 @@ public class Translate : MonoBehaviour
 
     }
 
+    public void TranslateCeaser() {
+        Debug.Log("You've pressed me!");
+    }
+
 }
