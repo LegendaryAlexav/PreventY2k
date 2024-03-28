@@ -16,8 +16,6 @@ public class Translate : MonoBehaviour
     
     public void TranslateMorse() {
         
-        Debug.Log("You've pressed me!");
-
         if (messageInput.text == "") {
             messageOutput.text = "You have given me NOTHING!";
         } else if (!messageInput.text.Contains("-") && !messageInput.text.Contains(".")) {
@@ -44,13 +42,75 @@ public class Translate : MonoBehaviour
                     case ".":
                         message += "E";
                         break;
-                    
+                    case "..-.":
+                        message += "F";
+                        break;
+                    case "--.":
+                        message += "G";
+                        break;
+                    case "....":
+                        message += "H";
+                        break;
+                    case "..":
+                        message += "I";
+                        break;
+                    case ".---":
+                        message += "J";
+                        break;
+                    case "-.-":
+                        message += "K";
+                        break;
+                    case ".-..":
+                        message += "L";
+                        break;
+                    case "--":
+                        message += "M";
+                        break;
+                    case "-.":
+                        message += "N";
+                        break;
+                    case "---":
+                        message += "O";
+                        break;
+                    case ".--.":
+                        message += "P";
+                        break;
+                    case "--.-":
+                        message += "Q";
+                        break;
+                    case ".-.":
+                        message += "R";
+                        break;
+                    case "...":
+                        message += "S";
+                        break;
+                    case "-":
+                        message += "T";
+                        break;
+                    case "..-":
+                        message += "U";
+                        break;
+                    case "...-":
+                        message += "V";
+                        break;
+                    case ".--":
+                        message += "W";
+                        break;
+                    case "-..-":
+                        message += "X";
+                        break;
+                    case "-.--":
+                        message += "Y";
+                        break;
+                    case "--..":
+                        message += "Z";
+                        break;
                 }
             }
 
             messageOutput.text = message;
+            message = "";
         }
-
 
     }
 
