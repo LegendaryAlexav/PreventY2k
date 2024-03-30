@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class Translate : MonoBehaviour
 {
-    private String message;
+    private String message = "";
 
     public TMP_InputField messageInput;
     
@@ -115,7 +115,35 @@ public class Translate : MonoBehaviour
     }
 
     public void TranslateCeaser() {
-        Debug.Log("You've pressed me!");
+
+        // If the input is empty
+        if (messageInput.text == "") {
+            messageOutput.text = "You have given me NOTHING!";
+        } else {
+
+            // Loop through every letter in the input
+            foreach (char c in messageInput.text) {
+
+                // Check to see if the current character is a letter
+                if (char.IsLetter(c)) {
+
+                    // Convert the character to lowercase
+                    char lowerC = char.ToLower(c);
+
+                    // Apply the shift of 5
+                    message += (char)(((lowerC - 5 - 'a'+ 26) % 26) + 'a');
+                } else {
+
+                    // If not a letter, just add the character
+                    message += c;
+                }
+            }
+
+            // Put the final message output to upper case
+            messageOutput.text = message.ToUpper();
+
+            message = "";
+        }
     }
 
 }
