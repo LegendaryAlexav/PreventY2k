@@ -2,13 +2,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Translate : MonoBehaviour
 {
+    
     private String message = "";
+
+    private int vigenereButtonCount = 0;
+
+    private String vigenereTempMessage;
 
     public TMP_InputField messageInput;
     
@@ -114,15 +120,71 @@ public class Translate : MonoBehaviour
 
     }
 
+    public void TranslateVigenere() {
+
+        if (vigenereButtonCount == 0) {
+
+            if (messageInput.text == "") {
+
+                messageOutput.text = "You have given me NOTHING!";
+
+            } else {
+
+                vigenereTempMessage = messageInput.text;
+                messageInput.text = "";
+                messageOutput.text = "Please now enter the key";
+                vigenereButtonCount++;
+
+            }
+
+        } else if (vigenereButtonCount == 1) {
+
+            String key = messageInput.text.ToLower();
+            int keyCounter = 0;
+
+            foreach (char c in vigenereTempMessage.ToLower().Trim()) {
+
+                if (char.IsLetter(c)) {
+
+                    if (keyCounter == key.Length) {
+                        keyCounter = 0;
+                    }
+
+                    int x = (c - key[keyCounter] + 26) % 26;
+                    
+                    x += 'A';
+                    message += (char) x;
+
+                    keyCounter++;
+                } else {
+
+                    message += c;
+
+                }
+
+            }
+
+            messageOutput.text = message;
+            message = "";
+            messageInput.text = "";
+            vigenereTempMessage = "";
+            vigenereButtonCount--;
+
+        }
+
+    }
+
     public void TranslateCeaser() {
 
         // If the input is empty
         if (messageInput.text == "") {
+
             messageOutput.text = "You have given me NOTHING!";
+
         } else {
 
             // Loop through every letter in the input
-            foreach (char c in messageInput.text) {
+            foreach (char c in messageInput.text.Trim()) {
 
                 // Check to see if the current character is a letter
                 if (char.IsLetter(c)) {
@@ -132,6 +194,7 @@ public class Translate : MonoBehaviour
 
                     // Apply the shift of 5
                     message += (char)(((lowerC - 5 - 'a'+ 26) % 26) + 'a');
+
                 } else {
 
                     // If not a letter, just add the character
