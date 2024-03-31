@@ -114,6 +114,7 @@ public class Translate : MonoBehaviour
                 }
             }
 
+            messageInput.text = "";
             messageOutput.text = message;
             message = "";
         }
@@ -214,6 +215,7 @@ public class Translate : MonoBehaviour
                 }
             }
 
+            messageInput.text = "";
             // Put the final message output to upper case
             messageOutput.text = message.ToUpper();
 
