@@ -84,12 +84,12 @@ public class GameManager : MonoBehaviour
     public void GOCounter()
     {
         correctlyFlagged++;
-        Debug.Log("GoodFlagged");
+        Debug.Log("GoodFlagged" + correctlyFlagged);
     }
     public void GODown()
     {
             correctlyFlagged--;
-        
+        Debug.Log("ByeByeGoodFlagged" + correctlyFlagged);
     }
 
     public void CheckGameOver()
