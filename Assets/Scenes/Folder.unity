@@ -273,6 +273,10 @@ PrefabInstance:
       propertyPath: window
       value: 
       objectReference: {fileID: 899882124}
+    - target: {fileID: 2545497267916945119, guid: 865ee62fa46bfb04db5ee7dec1fee6cc, type: 3}
+      propertyPath: parentFolder
+      value: 
+      objectReference: {fileID: 340069151}
     - target: {fileID: 4797447998281988588, guid: 865ee62fa46bfb04db5ee7dec1fee6cc, type: 3}
       propertyPath: canvas
       value: 
@@ -497,6 +501,10 @@ PrefabInstance:
       propertyPath: window
       value: 
       objectReference: {fileID: 710877310}
+    - target: {fileID: 2545497267916945119, guid: 865ee62fa46bfb04db5ee7dec1fee6cc, type: 3}
+      propertyPath: parentFolder
+      value: 
+      objectReference: {fileID: 340069151}
     - target: {fileID: 4797447998281988588, guid: 865ee62fa46bfb04db5ee7dec1fee6cc, type: 3}
       propertyPath: canvas
       value: 
@@ -1398,6 +1406,10 @@ PrefabInstance:
       propertyPath: window
       value: 
       objectReference: {fileID: 1012310309}
+    - target: {fileID: 2545497267916945119, guid: 865ee62fa46bfb04db5ee7dec1fee6cc, type: 3}
+      propertyPath: parentFolder
+      value: 
+      objectReference: {fileID: 340069151}
     - target: {fileID: 4797447998281988588, guid: 865ee62fa46bfb04db5ee7dec1fee6cc, type: 3}
       propertyPath: canvas
       value: 
@@ -1734,6 +1746,10 @@ PrefabInstance:
       propertyPath: window
       value: 
       objectReference: {fileID: 1006419133}
+    - target: {fileID: 2545497267916945119, guid: 865ee62fa46bfb04db5ee7dec1fee6cc, type: 3}
+      propertyPath: parentFolder
+      value: 
+      objectReference: {fileID: 340069151}
     - target: {fileID: 4797447998281988588, guid: 865ee62fa46bfb04db5ee7dec1fee6cc, type: 3}
       propertyPath: canvas
       value: 
@@ -2049,6 +2065,10 @@ PrefabInstance:
       propertyPath: window
       value: 
       objectReference: {fileID: 700075089}
+    - target: {fileID: 2545497267916945119, guid: 865ee62fa46bfb04db5ee7dec1fee6cc, type: 3}
+      propertyPath: parentFolder
+      value: 
+      objectReference: {fileID: 340069151}
     - target: {fileID: 4797447998281988588, guid: 865ee62fa46bfb04db5ee7dec1fee6cc, type: 3}
       propertyPath: canvas
       value: 
