@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class Translate : MonoBehaviour
 {
-    
+
     private String message = "";
 
     private int vigenereButtonCount = 0;
@@ -122,48 +122,60 @@ public class Translate : MonoBehaviour
 
     public void TranslateVigenere() {
 
-        if (vigenereButtonCount == 0) {
+        if (vigenereButtonCount == 0) { // If the button is pressed for the first time
 
+            // If the input field is empty
             if (messageInput.text == "") {
 
                 messageOutput.text = "You have given me NOTHING!";
 
             } else {
-
+                
+                // Store the input field's text into the temp variable, and request the key
                 vigenereTempMessage = messageInput.text;
                 messageInput.text = "";
                 messageOutput.text = "Please now enter the key";
                 vigenereButtonCount++;
 
             }
+            
+        } else if (vigenereButtonCount == 1) { // If the button is pressed for the second time
 
-        } else if (vigenereButtonCount == 1) {
-
+            // Modify the key string and setup key counter
             String key = messageInput.text.ToLower();
             int keyCounter = 0;
 
+            // For every character in the given message
             foreach (char c in vigenereTempMessage.ToLower().Trim()) {
 
+                // If the character is a letter
                 if (char.IsLetter(c)) {
 
+                    // If the counter reaches the end of the key
                     if (keyCounter == key.Length) {
+
+                        // Reset the counter
                         keyCounter = 0;
                     }
 
+                    // Decrypt the character
                     int x = (c - key[keyCounter] + 26) % 26;
-                    
                     x += 'A';
                     message += (char) x;
 
+                    // Increase the counter
                     keyCounter++;
+
                 } else {
 
+                    //If not a letter, just add the character
                     message += c;
 
                 }
 
             }
 
+            // Do final cleanup
             messageOutput.text = message;
             message = "";
             messageInput.text = "";
@@ -206,6 +218,28 @@ public class Translate : MonoBehaviour
             messageOutput.text = message.ToUpper();
 
             message = "";
+        }
+    }
+
+    public void TranslateAtBash() {
+
+        // If the input field is empty
+        if (messageInput.text == "") {
+
+            messageOutput.text = "You have given me NOTHING!";
+
+        } else {
+
+            // Loop through every character in the input
+            foreach (char c in messageInput.text.Trim()) {
+                
+                // If the current character is a letter
+                if (char.IsLetter(c)) {
+
+                    
+
+                }
+            }
         }
     }
 
