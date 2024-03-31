@@ -205,7 +205,7 @@ public class Translate : MonoBehaviour
                     char lowerC = char.ToLower(c);
 
                     // Apply the shift of 5
-                    message += (char)(((lowerC - 5 - 'a'+ 26) % 26) + 'a');
+                    message += (char)(((lowerC - 10 - 'a'+ 26) % 26) + 'a');
 
                 } else {
 
@@ -230,16 +230,35 @@ public class Translate : MonoBehaviour
 
         } else {
 
+            char[] characterList = messageInput.text.Trim().ToCharArray();
+
             // Loop through every character in the input
-            foreach (char c in messageInput.text.Trim()) {
+            foreach (char c in characterList) {
                 
                 // If the current character is a letter
                 if (char.IsLetter(c)) {
 
-                    
+                    // Apply character converison on lowercase letters
+                    if (c >= 'a' && c <= 'z') {
+                        message += (char) (96 + (123 - c));
+                    }
 
+                    // Apply character conversion in uppercase letters
+                    if (c >= 'A' && c <= 'Z') {
+                        message += (char) (64 + (91 - c));
+                    }
+
+                } else {
+
+                    // If not a letter, just add the character
+                    message += c;
                 }
             }
+
+            messageInput.text = "";
+            messageOutput.text = message;
+            message = "";
+
         }
     }
 
