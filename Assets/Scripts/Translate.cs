@@ -258,7 +258,7 @@ public class Translate : MonoBehaviour
             }
 
             messageInput.text = "";
-            messageOutput.text = message;
+            messageOutput.text = message.ToUpper();
             message = "";
 
         }
