@@ -15,8 +15,8 @@ public class Tile : MonoBehaviour
 
     public GameObject WinnerFace;
     public GameObject LoserFace;
-    public GameObject WinnerFaceClone;
 
+    public GameObject WinnerFaceClone;
     public GameObject LoserFaceClone;
 
     [Header("GM set via code")]
