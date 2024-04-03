@@ -26,7 +26,7 @@ public class MusicManager : MonoBehaviour
             trackCount = 0;
         }
 
-        musicTitle.text = audioSource.clip.ToString();
+        musicTitle.text =  audioSource.clip.name;
 
         audioSource.Pause();
         audioSource.clip = musicList[trackCount];
@@ -72,7 +72,7 @@ public class MusicManager : MonoBehaviour
 
         if (!audioSource.isPlaying) {
             audioSource.clip = musicList[trackCount];
-            musicTitle.text = audioSource.clip.ToString();
+            musicTitle.text = audioSource.clip.name;
             audioSource.Play();
         }
 
