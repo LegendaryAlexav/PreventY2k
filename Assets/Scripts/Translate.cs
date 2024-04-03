@@ -33,6 +33,9 @@ public class Translate : MonoBehaviour
             for (int i = 0; i < messageBits.Length; i++) {
                 switch (messageBits[i])
                 {
+                    case "/":
+                        message += " ";
+                        break;
                     case ".-":
                         message += "A";
                         break;
@@ -110,6 +113,36 @@ public class Translate : MonoBehaviour
                         break;
                     case "--..":
                         message += "Z";
+                        break;
+                    case ".----":
+                        message += "1";
+                        break;
+                    case "..---":
+                        message += "2";
+                        break;
+                    case "...--":
+                        message += "3";
+                        break;
+                    case "....-":
+                        message += "4";
+                        break;
+                    case ".....":
+                        message += "5";
+                        break;
+                    case "-....":
+                        message += "6";
+                        break;
+                    case "--...":
+                        message += "7";
+                        break;
+                    case "---..":
+                        message += "8";
+                        break;
+                    case "----.":
+                        message += "9";
+                        break;
+                    case "-----":
+                        message += "0";
                         break;
                 }
             }
