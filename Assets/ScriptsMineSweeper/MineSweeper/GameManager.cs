@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     private int numMines = 60;
     private int correctlyFlagged = 0;
-    
+
     //private readonly float tileSize = 0.8f;
 
     private GameObject[] TileParent;
@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     {
         newInstance = Instantiate(game);
         Debug.Log("CreatedFirstInstance");
-        game.SetActive(false);
+        //game.SetActive(false);
         newInstance.transform.parent = MinesweeperParent.transform;
         OldInstance = Instantiate(newInstance);
         Debug.Log("Instantiated from newInstance");
@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     }
     public void ResetGame()
     {
-        
+
         Destroy(baseGame);
         baseGame = Instantiate(OldInstance);
         baseGame.SetActive(true);
@@ -63,13 +63,13 @@ public class GameManager : MonoBehaviour
         if (newInstance != null)
         {
             newInstance.SetActive(false);
-        } 
+        }
         MinesweeperParent.SetActive(false);
     }
     public void OpenApp()
     {
 
-       
+
         MinesweeperParent.SetActive(true);
         Debug.Log("ParentActive");
         baseGame = Instantiate(OldInstance);
@@ -82,13 +82,13 @@ public class GameManager : MonoBehaviour
     {
         numMines--;
         Num1.BombDown();
-        
+
     }
     public void UnFlagged()
     {
         numMines++;
         Num1.BombUp();
-        
+
     }
     public void LostGame()
     {
@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
     }
     public void GODown()
     {
-            correctlyFlagged--;
+        correctlyFlagged--;
         Debug.Log("ByeByeGoodFlagged" + correctlyFlagged);
     }
 
@@ -117,10 +117,10 @@ public class GameManager : MonoBehaviour
             WinnerFace.gameObject.SetActive(true);
             Face.gameObject.SetActive(false);
             LoserFace.gameObject.SetActive(false);
-            Faces= false;
+            Faces = false;
 
         }
     }
-    
+
 
 }
