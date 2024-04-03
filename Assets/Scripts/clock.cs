@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+[RequireComponent(typeof(AudioSource))]
 public class clock : MonoBehaviour
 {   
     //time is set to 1800 for 30 minutes
@@ -13,6 +13,9 @@ public class clock : MonoBehaviour
     //both are temp debug bools
     public bool gameOver; 
     public bool lossStart;
+
+    public AudioClip clip;
+
     void Update()
     {
         //ads time based from the frame rate (incase game or computer framerate is diffrent)
@@ -22,11 +25,20 @@ public class clock : MonoBehaviour
         if(timeValue<3600)
         {
             DisplayTime(timeValue);
-            if (timeValue>3570){
-                //play audio file from here
-                lossStart = true;
+            
+            if (timeValue > 3504)
+            {
+                if (timeValue < 3505) {
+                    Debug.Log("AudioGonnaStart");
+                PlayAudio();
+                    lossStart = true;
+                    Debug.Log("AudioWorks");
+                }
+                
+
             }
             
+
         }
         else
         {
@@ -37,10 +49,23 @@ public class clock : MonoBehaviour
         gameOver = true;
 
         //add crash effects here
+        Debug.Log("So Long Gay Bowser");
         Application.Quit();
+            
         }
 
     }
+
+    private void PlayAudio()
+    {
+        
+         AudioSource audio = FindObjectOfType<AudioSource>();
+                audio.clip = clip;
+                audio.Play();
+                Debug.Log("EndingAudioStarts");
+    }
+
+
     void DisplayTime(float timeToDisplay)
     {
         //calculates seconds and minutes
