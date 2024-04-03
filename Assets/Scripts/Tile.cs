@@ -11,9 +11,24 @@ public class Tile : MonoBehaviour
     [SerializeField] private Sprite mineTile;
     [SerializeField] private Sprite mineWrongTile;
     [SerializeField] private Sprite mineHitTile;
+    [SerializeField] private Sprite WinFlagged;
+
+    public GameObject WinnerFace;
+    public GameObject LoserFace;
+    public GameObject WinnerFaceClone;
+
+    public GameObject LoserFaceClone;
+
+    [Header("GM set via code")]
+    public GameManager gameManager;
 
     private SpriteRenderer spriteRenderer;
     public bool flagged = false;
+    public bool active = true;
+    public bool isMine;
+    public int mineCount = 0;
+
+    public bool Loser = false;
 
     private void Awake()
     {
@@ -22,10 +37,148 @@ public class Tile : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Loser != true)
         {
-            //ClickedTiles(); Error, Method does not exist
+            
+            if (active)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    ClickedTile();
+                }
+                else if (Input.GetMouseButtonDown(1))
+                {
+                    flagged = !flagged;
+                    if (flagged)
+                    {
+                        spriteRenderer.sprite = flaggedTile;
+                        gameManager.Flagged();
+                        if (isMine)
+                        {
+                            Debug.Log("FLGood");
+                            gameManager.GOCounter();
+                        }
+                        gameManager.CheckGameOver();
+                    }
+
+                    else if (!flagged)
+                    {
+                        spriteRenderer.sprite = unclickedTile;
+                        gameManager.UnFlagged();
+                        if (isMine)
+                        {
+                            Debug.Log("FLGood");
+                            gameManager.GODown();
+                        }
+                        gameManager.CheckGameOver();
+                    }
+
+                    else
+                    {
+                        spriteRenderer.sprite = unclickedTile;
+                        gameManager.UnFlagged();
+                    }
+                }
+
+            }
+        }
+        else
+        {
+            if (Input.GetMouseButton(0))
+            {
+                //gameManager.ExpandIfFlagged(this);
+            }
+        }
+        
+    }
+
+    public void ClickedTile()
+    {
+        if(active & !flagged)
+        {
+            active = false;
+            
+            if (isMine)
+            {
+                spriteRenderer.sprite = mineHitTile;
+                Debug.Log("Hit!");
+                gameManager.LostGame();
+                
+            }
+            else
+            {
+                spriteRenderer.sprite = clickedTiles[mineCount];
+                Debug.Log("Meh");
+            }
+            if (mineCount == 0)
+            {
+                //gameManager.ClickNeighbours(this);
+            }
+            
+            //gameManager.CheckGameOver();
         }
     }
+
+    public void ShowGameOverState()
+    {
+        if (active)
+        {
+            active = false;
+            if (isMine & !flagged)
+            {
+                spriteRenderer.sprite = mineTile;
+            }
+            else if (flagged & !isMine)
+            {
+                spriteRenderer.sprite = mineWrongTile;
+            }
+        }
+    }
+
+    public void SetFlaggedIfMine()
+    {
+        if (isMine)
+        {
+            flagged = true;
+            spriteRenderer.sprite = flaggedTile;
+        }
+    }
+
+    private void Update()
+    {
+        if (WinnerFace.activeSelf == true)
+        {
+            if (flagged & isMine)
+            {
+                spriteRenderer.sprite = WinFlagged;
+            }
+            else
+            {
+                spriteRenderer.sprite = clickedTiles[mineCount];
+            }
+            
+        }
+        else if (WinnerFaceClone.activeSelf == true)
+        {
+            if (flagged & isMine)
+            {
+                spriteRenderer.sprite = WinFlagged;
+            }
+            else
+            {
+                spriteRenderer.sprite = clickedTiles[mineCount];
+            }
+
+        }
+        else if (LoserFaceClone.activeSelf == true)
+        {
+            active = false;
+        }
+        else if (LoserFace.activeSelf == true)
+        {
+            active = false;
+        }
+    }
+
 
 }
