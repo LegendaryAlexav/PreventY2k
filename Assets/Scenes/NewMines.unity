@@ -3146,8 +3146,10 @@ MonoBehaviour:
   Face: {fileID: 1922747867}
   LoserFace: {fileID: 1922747866}
   WinnerFace: {fileID: 1922747865}
+  Faces: 0
   MSGameHolder: {fileID: 1922747864}
-  StarterHolder: {fileID: 0}
+  MinesweeperParent: {fileID: 1922747863}
+  game: {fileID: 1922747864}
 --- !u!212 &687526559
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9921,7 +9923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160920fc4516261499ddece272cd03d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 687526558}
+  GameManager: {fileID: 0}
 --- !u!1 &1906317193
 GameObject:
   m_ObjectHideFlags: 0
