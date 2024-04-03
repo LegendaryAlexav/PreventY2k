@@ -10,9 +10,9 @@ public class PasswordHandler : MonoBehaviour
 
     [SerializeField]
     private string password = "PASSWORD";
-    public void checkPassword(int sceneId) {
+    public void checkPassword(AudioClip clip) {
         if (messageInput.text == password) {
-            SceneManager.LoadScene(sceneId);
+            PlayAudio(clip);
         } else {
             messageInput.text = "Wrong Password";
         }
@@ -24,5 +24,12 @@ public class PasswordHandler : MonoBehaviour
         } else {
             messageInput.text = "Wrong Password";
         }
+    }
+
+    private void PlayAudio(AudioClip clip)
+    {
+        AudioSource audio = FindObjectOfType<AudioSource>();
+        audio.clip = clip;
+        audio.Play();
     }
 }
