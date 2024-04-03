@@ -16,8 +16,7 @@ public class Tile : MonoBehaviour
     public GameObject WinnerFace;
     public GameObject LoserFace;
 
-    public GameObject WinnerFaceClone;
-    public GameObject LoserFaceClone;
+    
 
     [Header("GM set via code")]
     public GameManager gameManager;
@@ -143,7 +142,7 @@ public class Tile : MonoBehaviour
             spriteRenderer.sprite = flaggedTile;
         }
     }
-
+    
     private void Update()
     {
         if (WinnerFace.activeSelf == true)
@@ -158,26 +157,13 @@ public class Tile : MonoBehaviour
             }
             
         }
-        else if (WinnerFaceClone.activeSelf == true)
-        {
-            if (flagged & isMine)
-            {
-                spriteRenderer.sprite = WinFlagged;
-            }
-            else
-            {
-                spriteRenderer.sprite = clickedTiles[mineCount];
-            }
-
-        }
-        else if (LoserFaceClone.activeSelf == true)
-        {
-            active = false;
-        }
+        
         else if (LoserFace.activeSelf == true)
         {
             active = false;
         }
+        
+        
     }
 
 

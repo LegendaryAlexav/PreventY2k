@@ -20,47 +20,63 @@ public class GameManager : MonoBehaviour
     public GameObject LoserFace;
     public GameObject WinnerFace;
 
+    public bool Faces;
+
     public GameObject MSGameHolder;
     private GameObject newInstance;
-    public GameObject StarterHolder;
+    public GameObject MinesweeperParent;
+    private GameObject OldInstance;
+    public GameObject game;
+    private GameObject baseGame;
 
     private int numMines = 60;
     private int correctlyFlagged = 0;
-
+    
     //private readonly float tileSize = 0.8f;
 
     private GameObject[] TileParent;
-     
+
+
+    public void FirstReset()
+    {
+        newInstance = Instantiate(game);
+        Debug.Log("CreatedFirstInstance");
+        game.SetActive(false);
+        newInstance.transform.parent = MinesweeperParent.transform;
+        OldInstance = Instantiate(newInstance);
+        Debug.Log("Instantiated from newInstance");
+        OldInstance.transform.parent = MinesweeperParent.transform;
+    }
     public void ResetGame()
     {
-
-        //Destroy(newInstance);
-        newInstance = Instantiate(MSGameHolder);
-        newInstance.gameObject.SetActive(true);
-        StarterHolder.gameObject.SetActive(false);
-        Num1 = Num2;
-        numMines = 60;
+        
+        Destroy(baseGame);
+        baseGame = Instantiate(OldInstance);
+        baseGame.SetActive(true);
+        baseGame.transform.parent = MinesweeperParent.transform;
         LoserFace.gameObject.SetActive(false);
         Face.gameObject.SetActive(true);
         WinnerFace.gameObject.SetActive(false);
-
     }
     public void CloseApp()
     {
         if (newInstance != null)
         {
             newInstance.SetActive(false);
-        }
+        } 
+        MinesweeperParent.SetActive(false);
     }
     public void OpenApp()
     {
-        //Destroy(newInstance);
-        newInstance = Instantiate(MSGameHolder);
-        newInstance.gameObject.SetActive(true);
-        //StarterHolder.SetActive(false);
-        LoserFace.gameObject.SetActive(false);
-        Face.gameObject.SetActive(true);
-        WinnerFace.gameObject.SetActive(false);
+
+       
+        MinesweeperParent.SetActive(true);
+        Debug.Log("ParentActive");
+        baseGame = Instantiate(OldInstance);
+        baseGame.transform.parent = MinesweeperParent.transform;
+        Debug.Log("Instatiated from OldInstance");
+        baseGame.SetActive(true);
+        Debug.Log("NewInstance Active");
     }
     public void Flagged()
     {
@@ -80,6 +96,7 @@ public class GameManager : MonoBehaviour
         LoserFace.gameObject.SetActive(true);
         Face.gameObject.SetActive(false);
         WinnerFace.gameObject.SetActive(false);
+        Faces = false;
     }
     public void GOCounter()
     {
@@ -100,6 +117,7 @@ public class GameManager : MonoBehaviour
             WinnerFace.gameObject.SetActive(true);
             Face.gameObject.SetActive(false);
             LoserFace.gameObject.SetActive(false);
+            Faces= false;
 
         }
     }

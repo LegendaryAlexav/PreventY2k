@@ -1092,6 +1092,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7233265601211022656}
   - {fileID: 2218062658628393201}
   m_Father: {fileID: 7819679790132492101}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1600,7 +1601,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2218062658628393201}
+  m_Father: {fileID: 8896941963746525340}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7288519646462921188
 MonoBehaviour:
@@ -1622,8 +1623,9 @@ MonoBehaviour:
   Face: {fileID: 2967927654641365773}
   LoserFace: {fileID: 7297720706733093687}
   WinnerFace: {fileID: 2745777574819635285}
+  Faces: 0
   MSGameHolder: {fileID: 5279042347335201411}
-  StarterHolder: {fileID: 7710123789203769326}
+  MinesweeperParent: {fileID: 0}
 --- !u!212 &8695658361263016797
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3861,7 +3863,7 @@ Transform:
   m_GameObject: {fileID: 7901768301610696352}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -946.9506, y: -543.9025, z: 10.939578}
+  m_LocalPosition: {x: -946.9506, y: -543.9025, z: 10.939575}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3887,8 +3889,9 @@ MonoBehaviour:
   Face: {fileID: 3089744416574995405}
   LoserFace: {fileID: 2075473724714129988}
   WinnerFace: {fileID: 4705305934877525023}
+  Faces: 0
   MSGameHolder: {fileID: 5279042347335201411}
-  StarterHolder: {fileID: 7710123789203769326}
+  MinesweeperParent: {fileID: 0}
 --- !u!212 &5334967353942518389
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3969,7 +3972,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7233265601211022656}
   - {fileID: 7783024881397764890}
   m_Father: {fileID: 8896941963746525340}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
