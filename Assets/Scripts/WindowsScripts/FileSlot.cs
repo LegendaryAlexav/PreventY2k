@@ -22,9 +22,7 @@ public class FileSlot : MonoBehaviour, IDropHandler
             originFolder.containedFolders.Add(moveFolders); // add moveFolders to the top folder's List
 
             moveFolders.parentFolder = originFolder; // Set the parent in the MoveFolder script
-            
         }
-        Debug.Log("DroppCheck");
     }
         
 }

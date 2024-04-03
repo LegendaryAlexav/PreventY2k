@@ -26,27 +26,23 @@ public class MoveFolders : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IP
     #region -Mouse Events-
 
     public void OnBeginDrag(PointerEventData eventData) {
-        if(window != null) {
-            windowActive = window.activeInHierarchy; // Check if the window is active or not
-            window.SetActive(false); // Disables the window it is linked to
+        windowActive = window.activeInHierarchy; // Check if the window is active or not
+        window.SetActive(false); // Disables the window it is linked to
 
-            image.raycastTarget = false; // disables raycast image
+        image.raycastTarget = false; // disables raycast image
 
-            parentAfterDrag = transform.parent; // keep in mind the original parent
-            transform.SetParent(transform.root); // chhange the parent to the canvas
-            transform.SetAsLastSibling(); // Make it where it is above everything else
-        }
+        parentAfterDrag = transform.parent; // keep in mind the original parent
+        transform.SetParent(transform.root); // chhange the parent to the canvas
+        transform.SetAsLastSibling(); // Make it where it is above everything else
     }
 
     public void OnEndDrag(PointerEventData eventData) {
-        if (window != null) {
-            transform.SetParent(parentAfterDrag); // Set it back to the original parent
-            if (windowActive) {
-                window.SetActive(true); // Enables the window it is linked to when it was enabled before
-            }
-
-            image.raycastTarget = true; // enables the raycast image
+        transform.SetParent(parentAfterDrag); // Set it back to the original parent
+        if (windowActive) {
+            window.SetActive(true); // Enables the window it is linked to when it was enabled before
         }
+
+        image.raycastTarget = true; // enables the raycast image
     }
 
     public void OnPointerDown(PointerEventData data) {
