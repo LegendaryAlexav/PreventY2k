@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     public void ResetGame()
     {
 
-        Destroy(newInstance);
+        //Destroy(newInstance);
         newInstance = Instantiate(MSGameHolder);
         newInstance.gameObject.SetActive(true);
         StarterHolder.gameObject.SetActive(false);
@@ -54,10 +54,10 @@ public class GameManager : MonoBehaviour
     }
     public void OpenApp()
     {
-        Destroy(newInstance);
+        //Destroy(newInstance);
         newInstance = Instantiate(MSGameHolder);
         newInstance.gameObject.SetActive(true);
-        StarterHolder.SetActive(false);
+        //StarterHolder.SetActive(false);
         LoserFace.gameObject.SetActive(false);
         Face.gameObject.SetActive(true);
         WinnerFace.gameObject.SetActive(false);
