@@ -16,8 +16,7 @@ public class Tile : MonoBehaviour
     public GameObject WinnerFace;
     public GameObject LoserFace;
 
-    public GameObject WinnerFaceClone;
-    public GameObject LoserFaceClone;
+
 
     [Header("GM set via code")]
     public GameManager gameManager;
@@ -39,7 +38,7 @@ public class Tile : MonoBehaviour
     {
         if (Loser != true)
         {
-            
+
             if (active)
             {
                 if (Input.GetMouseButtonDown(0))
@@ -89,21 +88,21 @@ public class Tile : MonoBehaviour
                 //gameManager.ExpandIfFlagged(this);
             }
         }
-        
+
     }
 
     public void ClickedTile()
     {
-        if(active & !flagged)
+        if (active & !flagged)
         {
             active = false;
-            
+
             if (isMine)
             {
                 spriteRenderer.sprite = mineHitTile;
                 Debug.Log("Hit!");
                 gameManager.LostGame();
-                
+
             }
             else
             {
@@ -114,7 +113,7 @@ public class Tile : MonoBehaviour
             {
                 //gameManager.ClickNeighbours(this);
             }
-            
+
             //gameManager.CheckGameOver();
         }
     }
@@ -156,28 +155,15 @@ public class Tile : MonoBehaviour
             {
                 spriteRenderer.sprite = clickedTiles[mineCount];
             }
-            
-        }
-        else if (WinnerFaceClone.activeSelf == true)
-        {
-            if (flagged & isMine)
-            {
-                spriteRenderer.sprite = WinFlagged;
-            }
-            else
-            {
-                spriteRenderer.sprite = clickedTiles[mineCount];
-            }
 
         }
-        else if (LoserFaceClone.activeSelf == true)
-        {
-            active = false;
-        }
+
         else if (LoserFace.activeSelf == true)
         {
             active = false;
         }
+
+
     }
 
 
