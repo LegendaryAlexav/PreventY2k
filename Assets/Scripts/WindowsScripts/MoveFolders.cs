@@ -23,10 +23,6 @@ public class MoveFolders : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IP
     float clicktime = 0;
     float clickdelay = 1.5f;
 
-    private void Start() {
-        
-    }
-
     #region -Mouse Events-
 
     public void OnBeginDrag(PointerEventData eventData) {
@@ -59,7 +55,6 @@ public class MoveFolders : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IP
             window.SetActive(true); // set active the window
 
         } else if (clicked > 2 || Time.time - clicktime > 1) clicked = 0; // If it is more than twice ior when it is bigger than the set delay, reset the clicks
-        Debug.Log(parentFolder.gameObject.name);
     }
 
     #endregion
