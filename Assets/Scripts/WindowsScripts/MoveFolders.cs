@@ -56,8 +56,9 @@ public class MoveFolders : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IP
         if (clicked > 1 && Time.time - clicktime < clickdelay) { // Checks if the delay between the double click is smaller than the set delay
             clicked = 0; // reset clicks
             clicktime = 0; // reset time
-            window.SetActive(true); // set active the window
-
+            if(window!=null){
+                window.SetActive(true); // set active the window
+            }
         } else if (clicked > 2 || Time.time - clicktime > 1) clicked = 0; // If it is more than twice ior when it is bigger than the set delay, reset the clicks
     }
 
